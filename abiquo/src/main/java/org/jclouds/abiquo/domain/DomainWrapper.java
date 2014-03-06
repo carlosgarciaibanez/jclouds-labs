@@ -44,7 +44,7 @@ import com.abiquo.model.transport.AcceptedRequestDto;
 import com.abiquo.model.transport.SingleResourceTransportDto;
 import com.abiquo.model.transport.WrapperDto;
 import com.abiquo.server.core.task.TaskDto;
-import com.abiquo.server.core.task.enums.TaskType;
+import com.abiquo.server.core.task.TaskType;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.reflect.Invokable;
@@ -263,7 +263,7 @@ public abstract class DomainWrapper<T extends SingleResourceTransportDto> {
          case VIRTUAL_MACHINE:
             // A VirtualMachine task can generate a template (if task is an
             // instance)
-            taskClass = dto.getType() == TaskType.INSTANCE || dto.getType() == TaskType.INSTANCE_PERSISTENT ? VirtualMachineTemplateTask.class
+            taskClass = dto.getType() == TaskType.INSTANCE ? VirtualMachineTemplateTask.class
                   : VirtualMachineTask.class;
             break;
       }

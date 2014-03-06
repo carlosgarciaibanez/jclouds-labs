@@ -16,6 +16,7 @@
  */
 package org.jclouds.abiquo.domain.infrastructure;
 
+import static com.abiquo.model.enumerator.HypervisorType.fromValue;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableList.copyOf;
 
@@ -419,7 +420,7 @@ public class Machine extends DomainWrapper<MachineDto> {
          }
          dto.setIp(ip);
          dto.setIpService(ipService);
-         dto.setType(type);
+         dto.setType(type.name());
          dto.setUser(user);
          dto.setPassword(password);
          dto.setIpmiIP(ipmiIp);
@@ -509,7 +510,7 @@ public class Machine extends DomainWrapper<MachineDto> {
    }
 
    public HypervisorType getType() {
-      return target.getType();
+      return fromValue(target.getType());
    }
 
    public String getUser() {
@@ -583,7 +584,7 @@ public class Machine extends DomainWrapper<MachineDto> {
    }
 
    public void setType(final HypervisorType type) {
-      target.setType(type);
+      target.setType(type.name());
    }
 
    public void setUser(final String user) {

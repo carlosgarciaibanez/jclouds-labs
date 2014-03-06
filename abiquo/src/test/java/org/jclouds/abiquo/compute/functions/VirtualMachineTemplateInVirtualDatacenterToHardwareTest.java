@@ -70,7 +70,7 @@ public class VirtualMachineTemplateInVirtualDatacenterToHardwareTest {
 
       VirtualDatacenterDto vdcDto = new VirtualDatacenterDto();
       vdcDto.setId(6);
-      vdcDto.setHypervisorType(HypervisorType.VMX_04);
+      vdcDto.setHypervisorType(HypervisorType.VMX_04.name());
       VirtualDatacenter vdc = wrap(context, VirtualDatacenter.class, vdcDto);
 
       Hardware hardware = function.apply(new VirtualMachineTemplateInVirtualDatacenter(template, vdc));
@@ -113,7 +113,7 @@ public class VirtualMachineTemplateInVirtualDatacenterToHardwareTest {
 
       VirtualDatacenterDto vdcDto = new VirtualDatacenterDto();
       vdcDto.setId(6);
-      vdcDto.setHypervisorType(HypervisorType.VMX_04);
+      vdcDto.setHypervisorType(HypervisorType.VMX_04.name());
       VirtualDatacenter vdc = wrap(context, VirtualDatacenter.class, vdcDto);
 
       Hardware hardware = function.apply(new VirtualMachineTemplateInVirtualDatacenter(template, vdc));

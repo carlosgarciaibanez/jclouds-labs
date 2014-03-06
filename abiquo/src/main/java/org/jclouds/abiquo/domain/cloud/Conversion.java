@@ -16,6 +16,7 @@
  */
 package org.jclouds.abiquo.domain.cloud;
 
+import static com.abiquo.model.enumerator.DiskFormatType.fromValue;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Date;
@@ -105,11 +106,11 @@ public class Conversion extends DomainWithTasksWrapper<ConversionDto> {
    }
 
    public DiskFormatType getSourceFormat() {
-      return target.getSourceFormat();
+      return fromValue(target.getSourceFormat());
    }
 
    public DiskFormatType getTargetFormat() {
-      return target.getTargetFormat();
+      return fromValue(target.getTargetFormat());
    }
 
    public Date getStartTimestamp() {

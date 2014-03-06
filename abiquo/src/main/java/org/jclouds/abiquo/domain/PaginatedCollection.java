@@ -44,7 +44,7 @@ import com.google.common.base.Optional;
  * 
  * @see PagedIterable
  */
-public class PaginatedCollection<T, W extends WrapperDto<T>> extends IterableWithMarker<T> {
+public class PaginatedCollection<T, W extends WrapperDto> extends IterableWithMarker<T> {
    protected final AbiquoApi api;
    protected final W delegate;
    protected final ParseXMLWithJAXB<W> parser;
@@ -88,7 +88,7 @@ public class PaginatedCollection<T, W extends WrapperDto<T>> extends IterableWit
     * 
     * @author Ignasi Barrera
     */
-   public static class ToPagedIterable<T, W extends WrapperDto<T>> implements
+   public static class ToPagedIterable<T, W extends WrapperDto> implements
          Function<PaginatedCollection<T, W>, PagedIterable<T>> {
       protected final AbiquoApi api;
       protected final ParseXMLWithJAXB<W> parser;

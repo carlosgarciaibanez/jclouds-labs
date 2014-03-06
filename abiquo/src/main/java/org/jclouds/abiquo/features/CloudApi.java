@@ -966,7 +966,7 @@ public interface CloudApi extends Closeable {
     */
    @Named("vm:listvolumes")
    @GET
-   @Consumes(VolumesManagementDto.BASE_MEDIA_TYPE)
+   @Consumes({VolumesManagementDto.BASE_MEDIA_TYPE, "application/vnd.abiquo.volumes+xml"})   
    @JAXBResponseParser
    VolumesManagementDto listAttachedVolumes(
          @EndpointLink("volumes") @BinderParam(BindToPath.class) VirtualMachineDto virtualMachine);

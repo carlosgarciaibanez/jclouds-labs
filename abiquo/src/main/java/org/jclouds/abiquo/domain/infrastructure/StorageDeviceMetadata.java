@@ -46,7 +46,7 @@ public class StorageDeviceMetadata extends DomainWrapper<StorageDeviceMetadataDt
    }
 
    public int getDefaultIscsiPort() {
-      return target.getDefaultIscsiPort();
+      return target.getDefaultServicePort();
    }
 
    public boolean requiresAuthentication() {

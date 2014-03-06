@@ -326,7 +326,7 @@ public class VirtualMachine extends DomainWithTasksWrapper<VirtualMachineWithNod
 
    public VirtualMachineTask deploy(final boolean forceEnterpriseSoftLimits) {
       VirtualMachineTaskDto force = new VirtualMachineTaskDto();
-      force.setForceEnterpriseSoftLimits(forceEnterpriseSoftLimits);
+      force.setForceVdcLimits(forceEnterpriseSoftLimits);
 
       AcceptedRequestDto<String> response = context.getApi().getCloudApi().deployVirtualMachine(unwrap(), force);
 

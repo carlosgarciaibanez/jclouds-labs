@@ -269,8 +269,8 @@ public class StorageDevice extends DomainWrapper<StorageDeviceDto> {
 
       public StorageDevice build() {
          StorageDeviceDto dto = new StorageDeviceDto();
-         dto.setIscsiIp(iscsiIp);
-         dto.setIscsiPort(iscsiPort);
+         dto.setServiceIp(iscsiIp);
+         dto.setServicePort(iscsiPort);
          dto.setManagementIp(managementIp);
          dto.setManagementPort(managementPort);
          dto.setName(name);
@@ -298,11 +298,11 @@ public class StorageDevice extends DomainWrapper<StorageDeviceDto> {
    }
 
    public String getIscsiIp() {
-      return target.getIscsiIp();
+      return target.getServiceIp();
    }
 
    public int getIscsiPort() {
-      return target.getIscsiPort();
+      return target.getServicePort();
    }
 
    public String getManagementIp() {
@@ -330,11 +330,11 @@ public class StorageDevice extends DomainWrapper<StorageDeviceDto> {
    }
 
    public void setIscsiIp(final String iscsiIp) {
-      target.setIscsiIp(iscsiIp);
+      target.setServiceIp(iscsiIp);
    }
 
    public void setIscsiPort(final int iscsiPort) {
-      target.setIscsiPort(iscsiPort);
+      target.setServicePort(iscsiPort);
    }
 
    public void setManagementIp(final String managementIp) {

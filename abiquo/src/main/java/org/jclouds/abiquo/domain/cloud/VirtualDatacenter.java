@@ -16,6 +16,7 @@
  */
 package org.jclouds.abiquo.domain.cloud;
 
+import static com.abiquo.model.enumerator.HypervisorType.fromValue;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Iterables.find;
 
@@ -432,7 +433,7 @@ public class VirtualDatacenter extends DomainWithLimitsWrapper<VirtualDatacenter
          dto.setVlansLimits(vlansSoft, vlansHard);
          dto.setPublicIPLimits(publicIpsSoft, publicIpsHard);
          dto.setName(name);
-         dto.setHypervisorType(hypervisorType);
+         dto.setHypervisorType(hypervisorType.name());
          dto.setVlan(network.unwrap());
 
          VirtualDatacenter virtualDatacenter = new VirtualDatacenter(context, dto);
@@ -456,7 +457,7 @@ public class VirtualDatacenter extends DomainWithLimitsWrapper<VirtualDatacenter
    // Delegate methods
 
    public HypervisorType getHypervisorType() {
-      return target.getHypervisorType();
+      return fromValue(target.getHypervisorType());
    }
 
    public Integer getId() {
@@ -468,7 +469,7 @@ public class VirtualDatacenter extends DomainWithLimitsWrapper<VirtualDatacenter
    }
 
    public void setHypervisorType(final HypervisorType hypervisorType) {
-      target.setHypervisorType(hypervisorType);
+      target.setHypervisorType(hypervisorType.name());
    }
 
    public void setName(final String name) {

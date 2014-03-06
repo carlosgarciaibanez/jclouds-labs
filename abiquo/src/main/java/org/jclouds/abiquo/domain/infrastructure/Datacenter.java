@@ -29,6 +29,7 @@ import org.jclouds.abiquo.domain.infrastructure.options.IpmiOptions;
 import org.jclouds.abiquo.domain.infrastructure.options.MachineOptions;
 import org.jclouds.abiquo.domain.network.Network;
 import org.jclouds.abiquo.domain.network.NetworkServiceType;
+import org.jclouds.abiquo.domain.network.PrivateNetwork;
 import org.jclouds.abiquo.domain.network.options.NetworkOptions;
 import org.jclouds.abiquo.predicates.NetworkServiceTypePredicates;
 import org.jclouds.collect.PagedIterable;
@@ -429,7 +430,7 @@ public class Datacenter extends DomainWrapper<DatacenterDto> {
       return transform(dtos.getCollection(), new Function<HypervisorTypeDto, HypervisorType>() {
          @Override
          public HypervisorType apply(HypervisorTypeDto input) {
-            return HypervisorType.fromId(input.getId());
+            return HypervisorType.fromValue(input.getName());
          }
       });
    }

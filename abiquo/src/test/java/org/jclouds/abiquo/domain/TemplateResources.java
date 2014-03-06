@@ -38,9 +38,9 @@ public class TemplateResources {
    public static DatacenterRepositoryDto datacenterRepositoryPut() {
       DatacenterRepositoryDto dcRepository = new DatacenterRepositoryDto();
       dcRepository.setName("Datacenter Repo");
-      dcRepository.setRepositoryCapacityMb(0);
+      dcRepository.setRepositoryCapacityMb(0L);
       dcRepository.setRepositoryLocation("10.60.1.104:/volume1/nfs-devel");
-      dcRepository.setRepositoryRemainingMb(0);
+      dcRepository.setRepositoryRemainingMb(0L);
       dcRepository.addLink(new RESTLink("applianceManagerRepositoryUri", "http://localhost/am/erepos/1"));
       dcRepository.addLink(new RESTLink("datacenter", "http://localhost/api/admin/datacenters/1"));
       dcRepository.addLink(new RESTLink("edit", "http://localhost/api/admin/enterprises/1/datacenterrepositories/1"));
@@ -137,9 +137,9 @@ public class TemplateResources {
    public static ConversionDto conversionPut() {
       ConversionDto conversion = new ConversionDto();
       conversion.setState(ConversionState.ENQUEUED);
-      conversion.setSourceFormat(DiskFormatType.VMDK_STREAM_OPTIMIZED);
+      conversion.setSourceFormat(DiskFormatType.VMDK_STREAM_OPTIMIZED.name());
       conversion.setSourcePath("source/path.vmkd");
-      conversion.setTargetFormat(DiskFormatType.RAW);
+      conversion.setTargetFormat(DiskFormatType.RAW.name());
       conversion.setTargetPath("target/path.raw");
       conversion.setTargetSizeInBytes(1000000l);
       conversion

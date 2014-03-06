@@ -43,7 +43,7 @@ public class CloudResources {
    public static VirtualDatacenterDto virtualDatacenterPost() {
       VirtualDatacenterDto virtualDatacenter = new VirtualDatacenterDto();
       virtualDatacenter.setName("VDC");
-      virtualDatacenter.setHypervisorType(HypervisorType.KVM);
+      virtualDatacenter.setHypervisorType(HypervisorType.KVM.name());
       virtualDatacenter.setVlan(NetworkResources.vlanPost());
       return virtualDatacenter;
    }

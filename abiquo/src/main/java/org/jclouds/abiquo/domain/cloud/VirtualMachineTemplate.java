@@ -245,7 +245,7 @@ public class VirtualMachineTemplate extends DomainWrapper<VirtualMachineTemplate
     */
    public ConversionTask requestConversion(final DiskFormatType diskFormat) {
       ConversionDto request = new ConversionDto();
-      request.setTargetFormat(diskFormat);
+      request.setTargetFormat(diskFormat.name());
 
       AcceptedRequestDto<String> taskRef = context.getApi().getVirtualMachineTemplateApi()
             .requestConversion(target, diskFormat, request);
