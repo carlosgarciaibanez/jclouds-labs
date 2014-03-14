@@ -433,7 +433,7 @@ public class VirtualDatacenter extends DomainWithLimitsWrapper<VirtualDatacenter
          dto.setVlansLimits(vlansSoft, vlansHard);
          dto.setPublicIPLimits(publicIpsSoft, publicIpsHard);
          dto.setName(name);
-         dto.setHypervisorType(hypervisorType.name());
+         dto.setHypervisorType(hypervisorType == null? null: hypervisorType.name());
          dto.setVlan(network.unwrap());
 
          VirtualDatacenter virtualDatacenter = new VirtualDatacenter(context, dto);

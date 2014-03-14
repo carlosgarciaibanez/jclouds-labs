@@ -73,8 +73,8 @@ public class InfrastructureResources {
    public static StorageDeviceDto storageDevicePost() {
       StorageDeviceDto storage = new StorageDeviceDto();
       storage.setName("Aloha aloha");
-      storage.setServiceIp("10.10.10.10");
-      storage.setServicePort(99);
+//      storage.setServiceIp("10.10.10.10");
+//      storage.setServicePort(99);
       storage.setManagementPort(90);
 
       return storage;
