@@ -50,6 +50,8 @@ import com.abiquo.server.core.config.SystemPropertiesDto;
 import com.abiquo.server.core.config.SystemPropertyDto;
 import com.abiquo.server.core.enterprise.PrivilegeDto;
 import com.abiquo.server.core.enterprise.PrivilegesDto;
+import com.abiquo.server.core.pricing.PricingTemplateDto;
+import com.abiquo.server.core.pricing.PricingTemplatesDto;
 
 /**
  * Provides synchronous access to Abiquo Admin API.
@@ -254,4 +256,28 @@ public interface ConfigApi extends Closeable {
    @Named("category:delete")
    @DELETE
    void deleteCategory(@EndpointLink("edit") @BinderParam(BindToPath.class) CategoryDto category);
+   
+   /**
+    * Lists all pricing templates.
+    * @return The list of pricing templates.
+    */
+   @Named("pricingtemplates:list")
+   @GET
+   @Path("/pricingtemplates")
+   @Consumes(PricingTemplatesDto.BASE_MEDIA_TYPE)
+   @JAXBResponseParser
+   PricingTemplatesDto listPricingTemplates();
+   
+   /**
+    * Retrieves the given pricing template.
+    * @param pricingTemplateId The id of the pricing template.
+    * @return The pricing template or <code>null</code> if it does not exist
+    */
+   @Named("pricingtemplate:get")
+   @GET
+   @Path("/pricingtemplates/{pricingtemplate}")
+   @Consumes(PricingTemplateDto.BASE_MEDIA_TYPE)
+   @JAXBResponseParser
+   @Fallback(NullOnNotFoundOr404.class)
+   PricingTemplateDto getPricingTemplate(@PathParam("pricingtemplate") Integer pricingTemplateId);
 }
