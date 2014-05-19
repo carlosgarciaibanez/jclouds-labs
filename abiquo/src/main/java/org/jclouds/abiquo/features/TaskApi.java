@@ -21,6 +21,8 @@ import java.io.Closeable;
 import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.core.MediaType;
 
 import org.jclouds.abiquo.AbiquoFallbacks.NullOn303;
 import org.jclouds.abiquo.binders.BindLinkToPath;
@@ -76,4 +78,15 @@ public interface TaskApi extends Closeable {
    @Consumes(TasksDto.BASE_MEDIA_TYPE)
    @JAXBResponseParser
    <T extends SingleResourceTransportDto> TasksDto listTasks(@EndpointLink("tasks") @BinderParam(BindToPath.class) T dto);
+   
+   @Named("task:cancel")
+   @POST
+   @Consumes(MediaType.TEXT_PLAIN)
+   void cancel(@EndpointLink("cancel") @BinderParam(BindToPath.class) final TaskDto task);
+   
+   @Named("task:resume")
+   @POST
+   @Consumes(MediaType.TEXT_PLAIN)
+   void resume(@EndpointLink("continue") @BinderParam(BindToPath.class) final TaskDto task);
+
 }
