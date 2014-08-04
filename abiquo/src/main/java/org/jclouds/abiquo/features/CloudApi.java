@@ -1024,7 +1024,7 @@ public interface CloudApi extends Closeable {
    @Consumes(DisksManagementDto.BASE_MEDIA_TYPE)
    @JAXBResponseParser
    DisksManagementDto listAttachedHardDisks(
-         @EndpointLink("disks") @BinderParam(BindToPath.class) VirtualMachineDto virtualMachine);
+         @EndpointLink("harddisks") @BinderParam(BindToPath.class) VirtualMachineDto virtualMachine);
 
    /**
     * Detach all hard disks from the given virtual machine.
@@ -1042,7 +1042,7 @@ public interface CloudApi extends Closeable {
    @ResponseParser(ReturnTaskReferenceOrNull.class)
    @Consumes(AcceptedRequestDto.BASE_MEDIA_TYPE)
    AcceptedRequestDto<String> detachAllHardDisks(
-         @EndpointLink("disks") @BinderParam(BindToPath.class) VirtualMachineDto virtualMachine);
+         @EndpointLink("harddisks") @BinderParam(BindToPath.class) VirtualMachineDto virtualMachine);
 
    /**
     * Replaces the current hard disks attached to the virtual machine with the
@@ -1064,7 +1064,7 @@ public interface CloudApi extends Closeable {
    @Consumes(AcceptedRequestDto.BASE_MEDIA_TYPE)
    @Produces(LinksDto.BASE_MEDIA_TYPE)
    AcceptedRequestDto<String> replaceHardDisks(
-         @EndpointLink("disks") @BinderParam(BindToPath.class) VirtualMachineDto virtualMachine,
+         @EndpointLink("harddisks") @BinderParam(BindToPath.class) VirtualMachineDto virtualMachine,
          @BinderParam(BindHardDiskRefsToPayload.class) DiskManagementDto... hardDisks);
 
    /*********************** Hard disks ***********************/
