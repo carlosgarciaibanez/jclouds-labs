@@ -115,6 +115,9 @@ public class Volume extends DomainWrapper<VolumeManagementDto> {
 
    public Tier getTier() {
       Integer tierId = target.getIdFromLink(ParentLinkName.TIER);
+      if ( virtualDatacenter == null ) {
+    	  this.getVirtualDatacenter();
+      }
       TierDto dto = context.getApi().getCloudApi().getStorageTier(virtualDatacenter.unwrap(), tierId);
       tier = wrap(context, Tier.class, dto);
       return tier;
